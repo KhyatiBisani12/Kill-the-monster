@@ -1,3 +1,8 @@
+const Engine = Matter.Engine;
+const World= Matter.World;
+const Bodies = Matter.Bodies;
+const Constraint = Matter.Constraint;
+
 var hero;
 var heroImg;
 var thanos;
@@ -6,14 +11,18 @@ var obstacles;
 var invisibleRope;
 
 
+
 function preload() {
 //preload the images here
-  heroImg = loadImage("images/ironman.png");
-  thanosImg = loadImage("images/thanos.jpg");
+  heroImg = loadImage("Images/ironman.png");
+  thanosImg = loadImage("Images/thanos.png");
 }
 
 function setup() {
   createCanvas(3000, 800);
+
+  engine = Engine.create();
+  world = engine.world;
   // create sprites here
   hero = createSprite(500,700,20,20);
   hero.addImage(heroImg);
@@ -28,6 +37,6 @@ function draw() {
 
 
 
-  
+  drawSprites(); 
 }
-drawSprites();
+
